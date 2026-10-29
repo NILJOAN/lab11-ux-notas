@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis notas</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <main class="tarjeta">
+    <img src="img/banner.svg" alt="Ilustración de tres notas de colores sobre un fondo azul claro" width="480" height="120">
+    <h1>Mis notas</h1>
+    <p class="ayuda">Escribe una nota, elige una categoría y pulsa «Agregar nota».</p>
+
+    <form id="formulario" novalidate>
+      <fieldset>
+        <legend>1. Nueva nota</legend>
+
+        <label for="texto">Escribe tu nota</label>
+        <textarea id="texto" rows="3" maxlength="200" required aria-describedby="contador"></textarea>
+        <p id="contador" class="contador">0/200 caracteres</p>
+
+        <label for="categoria">Categoría</label>
+        <select id="categoria" required>
+          <option>Personal</option>
+          <option>Estudio</option>
+          <option>Trabajo</option>
+        </select>
+      </fieldset>
+
+      <div class="acciones">
+        <button type="submit" id="agregar" class="boton-principal" disabled>Agregar nota</button>
+      </div>
+      <p class="ayuda pequeno">El botón se activa cuando escribes algo.</p>
+    </form>
+
+    <div class="aviso">
+      <p id="mensaje" class="mensaje" role="status"></p>
+      <button type="button" id="deshacer" class="boton-secundario" hidden>Deshacer</button>
+    </div>
+
+    <section aria-labelledby="titulo-lista">
+      <h2 id="titulo-lista">2. Tus notas <span id="total" class="total"></span></h2>
+      <div id="listado"></div>
+      <div class="acciones">
+        <button type="button" id="borrar-todas" class="boton-peligro">Borrar todas las notas</button>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
